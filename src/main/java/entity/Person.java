@@ -22,7 +22,15 @@ public class Person implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
+    private String address;
+    private String phone;
+    private String hobby;
+    private String city;
+    private int zip;
+    private String mail;
+    private String fname;
+    private String lname;
+    
     public Long getId() {
         return id;
     }
@@ -31,6 +39,71 @@ public class Person implements Serializable {
         this.id = id;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getHobby() {
+        return hobby;
+    }
+
+    public void setHobby(String hobby) {
+        this.hobby = hobby;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public int getZip() {
+        return zip;
+    }
+
+    public void setZip(int zip) {
+        this.zip = zip;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public String getFname() {
+        return fname;
+    }
+
+    public void setFname(String fname) {
+        this.fname = fname;
+    }
+
+    public String getLname() {
+        return lname;
+    }
+
+    public void setLname(String lname) {
+        this.lname = lname;
+    }
+    
+    
     @Override
     public int hashCode() {
         int hash = 0;
