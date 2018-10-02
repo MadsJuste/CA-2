@@ -6,10 +6,15 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
+
 
 /**
  *
@@ -26,9 +31,43 @@ public class Person implements Serializable {
     private String mail;
     private String fname;
     private String lname;
-    private int phoneID;
-    private int addressID;
-    private int[] hobbyID;
+    
+    @OneToOne
+    private Phone phone;
+    
+    @OneToOne
+    private Address address;
+    
+    @ManyToMany
+    private List<Hobby> hobby = new ArrayList();
+    
+    public void addHobby(Hobby h){
+        this.hobby.add(h);
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public List<Hobby> getHobby() {
+        return hobby;
+    }
+
+    public void setHobby(List<Hobby> hobby) {
+        this.hobby = hobby;
+    }
+    
+    public Phone getPhone() {
+        return phone;
+    }
+
+    public void setPhone(Phone phone) {
+        this.phone = phone;
+    }
     
     public Long getId() {
         return id;
@@ -62,8 +101,8 @@ public class Person implements Serializable {
     public void setLname(String lname) {
         this.lname = lname;
     }
-    
-    
+
+
     @Override
     public int hashCode() {
         int hash = 0;

@@ -6,10 +6,14 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -17,6 +21,23 @@ import javax.persistence.Id;
  */
 @Entity
 public class Hobby implements Serializable {
+
+    @ManyToMany(mappedBy = "hobby")
+    private List<Person> persons = new ArrayList();
+
+    public List<Person> getPersons() {
+        return persons;
+    }
+
+    public void setPersons(List<Person> persons) {
+        this.persons = persons;
+    }
+    
+    public void addPerson(Person p){
+        this.persons.add(p);
+    }
+
+    @OneToMany(mappedBy = "hobby")
 
     private static final long serialVersionUID = 1L;
     @Id

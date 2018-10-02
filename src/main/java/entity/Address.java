@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -24,7 +25,7 @@ public class Address implements Serializable {
     private Long id;
     private String street;
     private String AdditionalInfo;
-    private int cityinfoID;
+    
     
     public Long getId() {
         return id;
@@ -50,14 +51,8 @@ public class Address implements Serializable {
         this.AdditionalInfo = AdditionalInfo;
     }
 
-    public int getCityinfoID() {
-        return cityinfoID;
-    }
-
-    public void setCityinfoID(int cityinfoID) {
-        this.cityinfoID = cityinfoID;
-    }
-    
+    @ManyToOne
+    private Cityinfo cityinfo;
     
     @Override
     public int hashCode() {
