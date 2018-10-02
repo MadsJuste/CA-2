@@ -1,11 +1,10 @@
 ca2control\PersonMapper.class
 entity\Phone.class
-entity\Address.class
-entity\Person.class
-ca2control\Structure.class
-entity\Hobby.class
-ca2control\CityinfoMapper.class
 ca2control\HobbyMapper.class
 entity\Cityinfo.class
+entity\Address.class
+entity\Person.class
 ca2control\PhoneMapper.class
+entity\Hobby.class
+ca2control\CityinfoMapper.class
 ca2control\AddressMapper.class

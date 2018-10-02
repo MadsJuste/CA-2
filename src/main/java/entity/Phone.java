@@ -10,12 +10,22 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 /**
  *
  * @author Juste
  */
 @Entity
+/*
+@Table(name = "Phone")
+@NamedQueries({
+    @NamedQuery( name="findNumber",query="SELECT e FROM Phone e WHERE e.id LIKE :id"),
+    @NamedQuery( name="findDescription",query="Select e FROM Phone e WHERE e.id = :id"),
+    @NamedQuery( name="setDescription", query="UPDATE Phone e SET e.description = :newDescription WHERE e.description = :oldDiscription")
+})*/
 public class Phone implements Serializable {
 
     private static final long serialVersionUID = 1L;
