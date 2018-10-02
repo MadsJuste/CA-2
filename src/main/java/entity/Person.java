@@ -17,19 +17,18 @@ import javax.persistence.Id;
  */
 @Entity
 public class Person implements Serializable {
-
+                                                                                                        
     private static final long serialVersionUID = 1L;
-    @Id
+    @Id             
     @GeneratedValue(strategy = GenerationType.AUTO)
+                        
     private Long id;
-    private String address;
-    private String phone;
-    private String hobby;
-    private String city;
-    private int zip;
     private String mail;
     private String fname;
     private String lname;
+    private int phoneID;
+    private int addressID;
+    private int[] hobbyID;
     
     public Long getId() {
         return id;
@@ -39,45 +38,6 @@ public class Person implements Serializable {
         this.id = id;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getHobby() {
-        return hobby;
-    }
-
-    public void setHobby(String hobby) {
-        this.hobby = hobby;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public int getZip() {
-        return zip;
-    }
-
-    public void setZip(int zip) {
-        this.zip = zip;
-    }
 
     public String getMail() {
         return mail;

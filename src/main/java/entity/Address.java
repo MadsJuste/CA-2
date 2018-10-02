@@ -22,7 +22,10 @@ public class Address implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
+    private String street;
+    private String AdditionalInfo;
+    private int cityinfoID;
+    
     public Long getId() {
         return id;
     }
@@ -31,6 +34,31 @@ public class Address implements Serializable {
         this.id = id;
     }
 
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getAdditionalInfo() {
+        return AdditionalInfo;
+    }
+
+    public void setAdditionalInfo(String AdditionalInfo) {
+        this.AdditionalInfo = AdditionalInfo;
+    }
+
+    public int getCityinfoID() {
+        return cityinfoID;
+    }
+
+    public void setCityinfoID(int cityinfoID) {
+        this.cityinfoID = cityinfoID;
+    }
+    
+    
     @Override
     public int hashCode() {
         int hash = 0;

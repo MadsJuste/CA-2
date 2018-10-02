@@ -22,7 +22,9 @@ public class Cityinfo implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
+    private int zip;
+    private String city;
+    
     public Long getId() {
         return id;
     }
@@ -31,6 +33,23 @@ public class Cityinfo implements Serializable {
         this.id = id;
     }
 
+    public int getZip() {
+        return zip;
+    }
+
+    public void setZip(int zip) {
+        this.zip = zip;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+    
+    
     @Override
     public int hashCode() {
         int hash = 0;

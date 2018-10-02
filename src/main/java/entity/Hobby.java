@@ -22,6 +22,8 @@ public class Hobby implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String name;
+    private String discription;
 
     public Long getId() {
         return id;
@@ -31,6 +33,22 @@ public class Hobby implements Serializable {
         this.id = id;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDiscription() {
+        return discription;
+    }
+
+    public void setDiscription(String discription) {
+        this.discription = discription;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 0;
