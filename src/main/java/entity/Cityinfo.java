@@ -12,7 +12,7 @@ import javax.persistence.Table;
  * @author Juste
  */
 @Entity
-@Table(name = "cityinfo")
+@Table(name = "Cityinfo")
 public class Cityinfo implements Serializable {
 
     private static final long serialVersionUID = 1L;
