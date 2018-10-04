@@ -5,9 +5,16 @@
  */
 package Facade;
 
+<<<<<<< HEAD
 import ca2control.CityinfoDTO;
 import ca2control.HobbyDTO;
 import ca2control.PhoneDTO;
+=======
+import ca2control.CityinfoMapper;
+import ca2control.HobbyMapper;
+import ca2control.PhoneMapper;
+import entity.Cityinfo;
+>>>>>>> 1b31827c339878a48b83874b273317dd8baf3072
 import entity.Person;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -19,7 +26,7 @@ import javax.persistence.EntityManagerFactory;
  */
 public class CA2Facade {
         
-     EntityManagerFactory emf;
+    EntityManagerFactory emf;
     
     public CA2Facade(EntityManagerFactory emf)
     {
@@ -72,24 +79,26 @@ public class CA2Facade {
         return p;
     }
     
-    public int getCountForHobby()
+    public int getCountForHobby(String name)
     {
+            return getAllPersonFromHobby(name).size();
+    }
+    
+    public List<Cityinfo> getAllCities(){
         EntityManager em = emf.createEntityManager();
 
+        List<Cityinfo> cities = null;
+        
         try
         {
             em.getTransaction().begin();
-            
+            cities = em.createQuery("SELECT c FROM Cityinfo c").getResultList();
             em.getTransaction().commit();
-            return 1;
+            return cities;
         }
         finally
         {
             em.close();
         }
-    }
-    
-
-    
-    
+    }    
 }
