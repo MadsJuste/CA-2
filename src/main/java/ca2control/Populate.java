@@ -37,7 +37,7 @@ public class Populate {
         em.persist(p);
         
         Phone ph = new Phone("nummer!","kim nummer");
-        p.setPhone(ph);
+        p.addPhone(ph);
         em.persist(ph);
      
         p = new Person("Esben@mail.com", "Esben", "Göttsche");

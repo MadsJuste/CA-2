@@ -8,12 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -33,33 +30,42 @@ public class Person implements Serializable {
     private String mail;
     private String fname;
     private String lname;
+    @OneToMany(cascade = CascadeType.PERSIST)
+    private List<Phone> phone = new ArrayList();
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    private Address address;
+    @ManyToMany(cascade = CascadeType.PERSIST)
+    private List<Hobby> hobby = new ArrayList();
     
     public Person(String email, String fname, String lname){
         this.mail = email;
         this.fname = fname;
         this.lname = lname;
     }
+    
+    public Person(String email, String fname, String lname, List<Hobby> hobby, Address address, List<Phone> phone){
+        this.mail = email;
+        this.fname = fname;
+        this.lname = lname;
+        this.address = address;
+        this.hobby = hobby;
+        this.phone = phone;
+    }
     public Person(){
         
     }
-    
-    
-    @OneToOne
-    private Phone phone;
 
-    public Phone getPhone() {
+    public List<Phone> getPhone() {
         return phone;
     }
 
-    public void setPhone(Phone phone) {
+    public void setPhone(List<Phone> phone) {
         this.phone = phone;
     }
 
-    @ManyToOne
-    private Address address;
-    
-    @ManyToMany(cascade = CascadeType.PERSIST)
-    private List<Hobby> hobby = new ArrayList();
+    public void addPhone(Phone p){
+        this.phone.add(p);
+    }
     
     public void addHobby(Hobby h){
         this.hobby.add(h);

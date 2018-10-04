@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 
 /**
@@ -12,8 +13,9 @@ import javax.persistence.Id;
  * @author Juste
  */
 @Entity
-/*
+
 @Table(name = "Phone")
+/*
 @NamedQueries({
     @NamedQuery( name="findNumber",query="SELECT e FROM Phone e WHERE e.id LIKE :id"),
     @NamedQuery( name="findDescription",query="Select e FROM Phone e WHERE e.id = :id"),

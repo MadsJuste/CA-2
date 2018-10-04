@@ -9,8 +9,11 @@ import ca2control.CityinfoDTO;
 import ca2control.HobbyDTO;
 import ca2control.PersonDTO;
 import ca2control.PhoneDTO;
+import entity.Address;
 import entity.Cityinfo;
+import entity.Hobby;
 import entity.Person;
+import entity.Phone;
 import java.util.List;
 import javax.persistence.EntityManagerFactory;
 
@@ -38,6 +41,20 @@ public class CA2Facade {
         return persons;
     }
     
+    public List<Person> getFullPersonID(Long id)
+    {
+        PersonDTO p = new PersonDTO();
+        
+        List<Person> persons = p.getFullPersonID(id);
+        
+        return persons;
+    }
+    
+    public void createPerson(String mail, String fname, String lname, List<Hobby> hobby, Address address, List<Phone> phone){
+        PersonDTO p = new PersonDTO();
+        p.createPerson(mail, fname, lname, hobby, address, phone);
+    }
+
     public List<Person> getAllPersonFromHobby(String name){
         HobbyDTO hm = new HobbyDTO();
         

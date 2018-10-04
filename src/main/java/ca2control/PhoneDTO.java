@@ -47,7 +47,6 @@ public class PhoneDTO {
     
     public Person getPerson(String number){
         Person p = null;
-        em.getTransaction().begin();
         Query query = em.createQuery("SELECT p FROM Person p JOIN p.phone ph WHERE ph.number = :number");
         query.setParameter("number", number);
         p = (Person) query.getSingleResult();
