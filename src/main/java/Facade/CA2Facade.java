@@ -5,16 +5,10 @@
  */
 package Facade;
 
-<<<<<<< HEAD
 import ca2control.CityinfoDTO;
 import ca2control.HobbyDTO;
 import ca2control.PhoneDTO;
-=======
-import ca2control.CityinfoMapper;
-import ca2control.HobbyMapper;
-import ca2control.PhoneMapper;
 import entity.Cityinfo;
->>>>>>> 1b31827c339878a48b83874b273317dd8baf3072
 import entity.Person;
 import java.util.List;
 import javax.persistence.EntityManager;
