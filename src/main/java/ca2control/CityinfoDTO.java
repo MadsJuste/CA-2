@@ -58,4 +58,14 @@ public class CityinfoDTO {
         List<Person> person = query.getResultList();
         return person;
     }
+    
+     public List<Cityinfo> getAllCities(){
+
+        List<Cityinfo> cities = null;
+        em.getTransaction().begin();
+        cities = em.createQuery("SELECT c FROM Cityinfo c").getResultList();
+        em.getTransaction().commit();
+        return cities;
+       
+    }    
 }

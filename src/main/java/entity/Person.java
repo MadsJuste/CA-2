@@ -42,6 +42,8 @@ public class Person implements Serializable {
     public Person(){
         
     }
+    
+    
     @OneToOne
     private Phone phone;
 

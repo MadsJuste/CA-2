@@ -7,11 +7,11 @@ package Facade;
 
 import ca2control.CityinfoDTO;
 import ca2control.HobbyDTO;
+import ca2control.PersonDTO;
 import ca2control.PhoneDTO;
 import entity.Cityinfo;
 import entity.Person;
 import java.util.List;
-import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
 /**
@@ -31,21 +31,11 @@ public class CA2Facade {
     
     public List<Person> getAllPerson()
     {
-        EntityManager em = emf.createEntityManager();
-
-        List<Person> persons = null;
+        PersonDTO p = new PersonDTO();
         
-        try
-        {
-            em.getTransaction().begin();
-            persons = em.createQuery("SELECT p FROM Person p").getResultList();
-            em.getTransaction().commit();
-            return persons;
-        }
-        finally
-        {
-            em.close();
-        }
+        List<Person> persons = p.getAllPerson();
+        
+        return persons;
     }
     
     public List<Person> getAllPersonFromHobby(String name){
@@ -79,20 +69,12 @@ public class CA2Facade {
     }
     
     public List<Cityinfo> getAllCities(){
-        EntityManager em = emf.createEntityManager();
-
-        List<Cityinfo> cities = null;
+        CityinfoDTO ci = new CityinfoDTO();
         
-        try
-        {
-            em.getTransaction().begin();
-            cities = em.createQuery("SELECT c FROM Cityinfo c").getResultList();
-            em.getTransaction().commit();
-            return cities;
-        }
-        finally
-        {
-            em.close();
-        }
+        List<Cityinfo> cities = ci.getAllCities();
+        
+       
+        return cities;
+        
     }    
 }

@@ -5,6 +5,12 @@
  */
 package ca2control;
 
+import entity.Person;
+import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 
 
 /**
@@ -12,7 +18,17 @@ package ca2control;
  * @author Juste
  */
 public class PersonDTO {
-    public static void main(String[] args) {
+    
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("ca2PU");
+        EntityManager em = emf.createEntityManager();
+
         
-    }      
+      public List<Person> getAllPerson(){
+             List<Person> persons = null;
+            em.getTransaction().begin();
+            persons = em.createQuery("SELECT p FROM Person p").getResultList();
+            em.getTransaction().commit();
+            return persons;
+        
+        }
 }
