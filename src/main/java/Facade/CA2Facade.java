@@ -5,9 +5,9 @@
  */
 package Facade;
 
-import ca2control.CityinfoMapper;
-import ca2control.HobbyMapper;
-import ca2control.PhoneMapper;
+import ca2control.CityinfoDTO;
+import ca2control.HobbyDTO;
+import ca2control.PhoneDTO;
 import entity.Person;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -47,17 +47,17 @@ public class CA2Facade {
         }
     }
     
-    public List<Person> getAllPersonFromHobby(Long id){
-        HobbyMapper hm = new HobbyMapper();
+    public List<Person> getAllPersonFromHobby(String name){
+        HobbyDTO hm = new HobbyDTO();
         
-        List<Person> persons = hm.getAllPeople(id);
+        List<Person> persons = hm.getAllPeople(name);
         
         return persons;
     }
     
     public List<Person> getAllPersonByCity(int zip)
     {
-        CityinfoMapper cim = new CityinfoMapper();
+        CityinfoDTO cim = new CityinfoDTO();
       
         List<Person> persons = cim.getAllPeople(zip);;
                
@@ -67,7 +67,7 @@ public class CA2Facade {
     }
     
     public Person getPersonByPhone(String number){
-        PhoneMapper pm = new PhoneMapper();
+        PhoneDTO pm = new PhoneDTO();
         Person p = pm.getPerson(number);
         return p;
     }

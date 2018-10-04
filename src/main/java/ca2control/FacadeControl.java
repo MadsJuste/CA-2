@@ -8,11 +8,8 @@ package ca2control;
 import Facade.CA2Facade;
 import entity.Person;
 import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-
 import javax.persistence.Persistence;
-import javax.persistence.Query;
+
 
 /**
  *
@@ -36,7 +33,7 @@ public class FacadeControl {
             System.out.println("name of the person is : " + p.getFname() + " " +p.getLname());
         }
        
-       persons = caf.getAllPersonFromHobby(2L);
+       persons = caf.getAllPersonFromHobby("Mtg");
        for(Person p:persons)
         {
             System.out.println("name of the person is : " + p.getFname() + " " +p.getLname());
@@ -44,7 +41,7 @@ public class FacadeControl {
        
        Person person = caf.getPersonByPhone("nummer!");
        
-       System.out.println("eger af telefon er "+person.getFname() +" " + person.getLname() + " Mail er " + person.getMail() + " addresse er "+person.getAddress());
+       System.out.println("eger af telefon er "+person.getFname() +" " + person.getLname() + " Mail er " + person.getMail());
     
     }
 }
