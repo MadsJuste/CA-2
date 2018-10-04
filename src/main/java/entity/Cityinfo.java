@@ -27,6 +27,14 @@ public class Cityinfo implements Serializable {
     private int zip;
     private String city;
     
+    public Cityinfo(int zip, String city){
+        this.zip = zip;
+        this.city = city;
+    }
+     public Cityinfo(){
+        
+    }
+    
     public Long getId() {
         return id;
     }

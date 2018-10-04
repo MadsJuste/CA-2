@@ -28,7 +28,13 @@ public class Address implements Serializable {
     private String street;
     private String AdditionalInfo;
     
-    
+    public Address(String street, String additional){
+        this.street = street;
+        this.AdditionalInfo = additional;
+    }
+    public Address(){
+        
+    }
     public Long getId() {
         return id;
     }
@@ -55,6 +61,14 @@ public class Address implements Serializable {
 
     @ManyToOne
     private Cityinfo cityinfo;
+
+    public Cityinfo getCityinfo() {
+        return cityinfo;
+    }
+
+    public void setCityinfo(Cityinfo cityinfo) {
+        this.cityinfo = cityinfo;
+    }
     
     @Override
     public int hashCode() {

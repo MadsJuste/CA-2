@@ -26,6 +26,8 @@ public class Hobby implements Serializable {
 
     @ManyToMany(mappedBy = "hobby")
     private List<Person> persons = new ArrayList();
+    
+    
 
     public List<Person> getPersons() {
         return persons;
@@ -47,6 +49,15 @@ public class Hobby implements Serializable {
     private Long id;
     private String name;
     private String discription;
+    
+    public Hobby(String name, String discription){
+        this.name = name;
+        this.discription = discription;
+    }
+    
+    public Hobby(){
+        
+    }
 
     public Long getId() {
         return id;

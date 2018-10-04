@@ -38,7 +38,14 @@ public class Person implements Serializable {
     private String fname;
     private String lname;
     
-  
+    public Person(String email, String fname, String lname){
+        this.mail = email;
+        this.fname = fname;
+        this.lname = lname;
+    }
+    public Person(){
+        
+    }
     @OneToOne
     private Phone phone;
 
