@@ -6,7 +6,7 @@
 package ca2control;
 
 
-import entity.Address;
+
 import entity.Cityinfo;
 import entity.Person;
 import java.util.List;
@@ -51,6 +51,8 @@ public class CityinfoMapper {
     }
     
     public List<Person> getAllPeople(int zip){
+        
+        /*
         List<Person> person = null;
         Query query = em.createQuery("SELECT a FROM Address a WHERE a.cityinfo.zip =:zip");
         query.setParameter("zip", zip);
@@ -62,7 +64,12 @@ public class CityinfoMapper {
            person = query.getResultList();
 
         }
+        */
         
+        em.getTransaction().begin();
+        Query query = em.createQuery("SELECT p FROM Person p JOIN p.address a WHERE a.cityinfo.zip = :zip");
+        query.setParameter("zip", zip);
+        List<Person> person = query.getResultList();
         return person;
     }
 }

@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -53,6 +54,8 @@ public class Address implements Serializable {
     public void setAdditionalInfo(String AdditionalInfo) {
         this.AdditionalInfo = AdditionalInfo;
     }
+    
+
 
     @ManyToOne
     private Cityinfo cityinfo;

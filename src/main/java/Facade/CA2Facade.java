@@ -6,11 +6,11 @@
 package Facade;
 
 import ca2control.CityinfoMapper;
+import ca2control.HobbyMapper;
 import entity.Person;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Query;
 
 /**
  *
@@ -47,23 +47,11 @@ public class CA2Facade {
     }
     
     public List<Person> getAllPersonFromHobby(Long id){
-        EntityManager em = emf.createEntityManager();
-
-        List<Person> persons = null;
+        HobbyMapper hm = new HobbyMapper();
         
-        try
-        {
-            em.getTransaction().begin();
-            Query query = em.createQuery("SELECT p, h FROM Person p, Hobby h WHERE h.id =:id");
-            query.setParameter("id", id);
-            persons = query.getResultList();
-            em.getTransaction().commit();
-            return persons;
-        }
-        finally
-        {
-            em.close();
-        }
+        List<Person> persons = hm.getAllPeople(id);
+        
+        return persons;
     }
     
     public List<Person> getAllPersonByCity(int zip)
