@@ -18,25 +18,6 @@ import javax.persistence.Query;
  */
 public class PersonMapper {
     public static void main(String[] args) {
-        run();
-    }
-    
-    public static void run(){
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory( "jpapu" );
-        EntityManager em = emf.createEntityManager();
         
-        em.getTransaction().begin();
-        
-        //NamedQuery
-        Query Nquery = em.createNamedQuery("findAllPersonsByHobby");
-        Nquery.setParameter("hobby_id", 152); 
-        List<Person> persons = Nquery.getResultList(); 
-        for(Person p:persons)
-        {
-            System.out.println("Person with hobby 152 : " + p);
-        }
-        em.getTransaction().commit();        
-        em.close();
-    }
-        
+    }      
 }

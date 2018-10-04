@@ -16,20 +16,14 @@ import javax.persistence.Persistence;
  */
 
 public class PhoneMapper {
-
-    public static void main(String[] args) {  
-      
-    }
-    
-    public String getNumber(long id){
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("ca2PU");
-        EntityManager em = emf.createEntityManager(); 
+        EntityManager em = emf.createEntityManager();
+
+    public String getNumber(long id){        
         Phone p = em.find(Phone.class, id);
         return p.getNumber();
     }
-    public static void setNumber(String number, long id){
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("ca2PU");
-        EntityManager em = emf.createEntityManager(); 
+    public void setNumber(String number, long id){
         Phone p = em.find(Phone.class, id);
         em.getTransaction().begin();
         p.setNumber(number);
@@ -37,15 +31,11 @@ public class PhoneMapper {
         em.clear();
     }
     public String getDescription(long id){ 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("ca2PU");
-        EntityManager em = emf.createEntityManager(); 
         Phone p = em.find(Phone.class, id);
         return p.getDescription();
     }
     public void setDescription(String description, long id){
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("ca2PU");
-        EntityManager em = emf.createEntityManager(); 
-           Phone p = em.find(Phone.class, id);
+        Phone p = em.find(Phone.class, id);
         em.getTransaction().begin();
         p.setNumber(description);
         em.getTransaction().commit();

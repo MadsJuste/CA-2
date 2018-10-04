@@ -20,7 +20,14 @@ public class FacadeControl {
     {
         CA2Facade caf = new CA2Facade( Persistence.createEntityManagerFactory( "ca2PU" ) );
             
-       List<Person> persons = caf.getPersonByHobby();
+       List<Person> persons = caf.getAllPerson();
+       for(Person p:persons)
+        {
+            System.out.println("name of the person is : " + p.getFname() + " " +p.getLname());
+        }
+       
+       
+       persons = caf.getAllPersonByCity(3333);
        for(Person p:persons)
         {
             System.out.println("name of the person is : " + p.getFname() + " " +p.getLname());

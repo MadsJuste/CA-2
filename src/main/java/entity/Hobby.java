@@ -22,8 +22,6 @@ public class Hobby implements Serializable {
     @ManyToMany(mappedBy = "hobby")
     private List<Person> persons = new ArrayList();
     
-    
-
     public List<Person> getPersons() {
         return persons;
     }
@@ -35,8 +33,6 @@ public class Hobby implements Serializable {
     public void addPerson(Person p){
         this.persons.add(p);
     }
-
-    @OneToMany(mappedBy = "hobby")
 
     private static final long serialVersionUID = 1L;
     @Id

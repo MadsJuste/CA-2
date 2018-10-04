@@ -43,12 +43,18 @@ public class Populate {
         p = new Person("Esben@mail.com", "Esben", "Göttsche");
         em.persist(p);
         
-        p = new Person("Magnus@mail.com","Magnus","Madsen");
-        em.persist(p);
-        
         Address a = new Address("Yellow Road 1", "Berlin");
         
         Cityinfo c = new Cityinfo(3333,"Berlin");
+        a.setCityinfo(c);
+        em.persist(c);
+        
+        p.setAddress(a);
+        em.persist(a);  
+        
+        p = new Person("Magnus@mail.com","Magnus","Madsen");
+        em.persist(p);
+        
         a.setCityinfo(c);
         em.persist(c);
         

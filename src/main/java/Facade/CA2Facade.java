@@ -5,11 +5,12 @@
  */
 package Facade;
 
-import ca2control.PersonMapper;
+import ca2control.CityinfoMapper;
 import entity.Person;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Query;
 
 /**
  *
@@ -24,26 +25,9 @@ public class CA2Facade {
         this.emf = emf;
     }
     
-    public Person getPerson(String number)
-    {
-        EntityManager em = emf.createEntityManager();
-
-        Person p = null;
-        
-        try
-        {
-            em.getTransaction().begin();
-         //   p = em.find(Person.class, id);
-            em.getTransaction().commit();
-            return p;
-        }
-        finally
-        {
-            em.close();
-        }    
-    }
     
-    public List<Person> getPersonByHobby()
+    
+    public List<Person> getAllPerson()
     {
         EntityManager em = emf.createEntityManager();
 
@@ -62,8 +46,55 @@ public class CA2Facade {
         }
     }
     
-    public void runMapper(){
-        PersonMapper p = new PersonMapper();
+    public List<Person> getAllPersonFromHobby(Long id){
+        EntityManager em = emf.createEntityManager();
+
+        List<Person> persons = null;
+        
+        try
+        {
+            em.getTransaction().begin();
+            Query query = em.createQuery("SELECT p, h FROM Person p, Hobby h WHERE h.id =:id");
+            query.setParameter("id", id);
+            persons = query.getResultList();
+            em.getTransaction().commit();
+            return persons;
+        }
+        finally
+        {
+            em.close();
+        }
+    }
+    
+    public List<Person> getAllPersonByCity(int zip)
+    {
+        CityinfoMapper cim = new CityinfoMapper();
+      
+        List<Person> persons = cim.getAllPeople(zip);;
+               
+        return persons;
+      
         
     }
+    
+    public int getCountForHobby()
+    {
+        EntityManager em = emf.createEntityManager();
+
+        try
+        {
+            em.getTransaction().begin();
+            
+            em.getTransaction().commit();
+            return 1;
+        }
+        finally
+        {
+            em.close();
+        }
+    }
+    
+
+    
+    
 }
