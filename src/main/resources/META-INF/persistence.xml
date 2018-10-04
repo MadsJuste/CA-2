@@ -7,6 +7,7 @@
     <class>entity.Address</class>
     <class>entity.Cityinfo</class>
     <class>entity.Hobby</class>
+    <class>entity.Person_1</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ca2db"/>

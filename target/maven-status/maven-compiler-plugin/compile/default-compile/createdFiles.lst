@@ -6,6 +6,7 @@ entity\Person.class
 ca2control\Structure.class
 entity\Hobby.class
 ca2control\CityinfoMapper.class
+ca2control\FacadeControl.class
 ca2control\HobbyMapper.class
 entity\Cityinfo.class
 ca2control\PhoneMapper.class

@@ -5,11 +5,11 @@
  */
 package Facade;
 
+import ca2control.PersonMapper;
 import entity.Person;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import static org.eclipse.persistence.sessions.remote.corba.sun.TransporterHelper.id;
 
 /**
  *
@@ -43,7 +43,7 @@ public class CA2Facade {
         }    
     }
     
-    public List<Person> getPersons()
+    public List<Person> getPersonByHobby()
     {
         EntityManager em = emf.createEntityManager();
 
@@ -52,7 +52,7 @@ public class CA2Facade {
         try
         {
             em.getTransaction().begin();
-            persons = em.createQuery("Select p from Person p").getResultList();
+            persons = em.createQuery("SELECT p FROM Person p").getResultList();
             em.getTransaction().commit();
             return persons;
         }
@@ -60,5 +60,10 @@ public class CA2Facade {
         {
             em.close();
         }
+    }
+    
+    public void runMapper(){
+        PersonMapper p = new PersonMapper();
+        
     }
 }
