@@ -41,6 +41,10 @@ public class FacadeControl {
         {
             System.out.println("name of the person is : " + p.getFname() + " " +p.getLname());
         }
+       
+       Person person = caf.getPersonByPhone("nummer!");
+       
+       System.out.println("eger af telefon er "+person.getFname() +" " + person.getLname() + " Mail er " + person.getMail() + " addresse er "+person.getAddress());
     
     }
 }

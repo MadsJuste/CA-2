@@ -52,20 +52,6 @@ public class CityinfoMapper {
     
     public List<Person> getAllPeople(int zip){
         
-        /*
-        List<Person> person = null;
-        Query query = em.createQuery("SELECT a FROM Address a WHERE a.cityinfo.zip =:zip");
-        query.setParameter("zip", zip);
-        List<Address> address = query.getResultList();
-        for(Address a : address)
-        {
-           query = em.createQuery("SELECT p FROM Person p WHERE p.address.id =:id");
-           query.setParameter("id", a.getId());
-           person = query.getResultList();
-
-        }
-        */
-        
         em.getTransaction().begin();
         Query query = em.createQuery("SELECT p FROM Person p JOIN p.address a WHERE a.cityinfo.zip = :zip");
         query.setParameter("zip", zip);

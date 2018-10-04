@@ -5,10 +5,13 @@
  */
 package ca2control;
 
+import entity.Person;
 import entity.Phone;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 /**
  *
@@ -40,6 +43,15 @@ public class PhoneMapper {
         p.setNumber(description);
         em.getTransaction().commit();
         em.clear();
+    }
+    
+    public Person getPerson(String number){
+        Person p = null;
+        em.getTransaction().begin();
+        Query query = em.createQuery("SELECT p FROM Person p JOIN p.phone ph WHERE ph.number = :number");
+        query.setParameter("number", number);
+        p = (Person) query.getSingleResult();
+        return p;
     }
  
 }

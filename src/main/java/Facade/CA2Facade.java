@@ -7,6 +7,7 @@ package Facade;
 
 import ca2control.CityinfoMapper;
 import ca2control.HobbyMapper;
+import ca2control.PhoneMapper;
 import entity.Person;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -63,6 +64,12 @@ public class CA2Facade {
         return persons;
       
         
+    }
+    
+    public Person getPersonByPhone(String number){
+        PhoneMapper pm = new PhoneMapper();
+        Person p = pm.getPerson(number);
+        return p;
     }
     
     public int getCountForHobby()
