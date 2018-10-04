@@ -38,7 +38,7 @@ nbdist/
 .nb-gradle/
 
 
-targer/*
+target/*
 *.persistence.xml
 
 # End of https://www.gitignore.io/api/macos,netbeans
