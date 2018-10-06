@@ -1,6 +1,8 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -57,8 +59,19 @@ public class Address implements Serializable {
     }
     
 
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Person> persons = new ArrayList();;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    public List<Person> getPersons() {
+        return persons;
+    }
+
+    public void setPersons(List<Person> persons) {
+        this.persons = persons;
+    }
+
+   
+    @ManyToOne(cascade = CascadeType.ALL)
     private Cityinfo cityinfo;
 
     public Cityinfo getCityinfo() {

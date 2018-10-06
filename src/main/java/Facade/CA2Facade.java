@@ -11,8 +11,8 @@ import ca2control.PersonDTO;
 import ca2control.PhoneDTO;
 import entity.Address;
 import entity.Cityinfo;
-import entity.ContactDTO;
-import entity.PersonF;
+//import entity.ContactDTO;
+//import entity.PersonF;
 import entity.Hobby;
 import entity.Person;
 import entity.Phone;
@@ -49,7 +49,7 @@ public class CA2Facade {
         return persons;
     }
     
-    public List<ContactDTO> getAllContact(){
+   /* public List<ContactDTO> getAllContact(){
         PersonDTO p = new PersonDTO();
         
         List<Person> persons = p.getAllPerson();
@@ -79,7 +79,7 @@ public class CA2Facade {
         
         return new ContactDTO(person);
     }
-    
+   */ 
     public void createPerson(String mail, String fname, String lname, List<Hobby> hobby, Address address, List<Phone> phone){
         PersonDTO p = new PersonDTO();
         p.createPerson(mail, fname, lname, hobby, address, phone);
@@ -104,9 +104,9 @@ public class CA2Facade {
         
     }
     
-    public Person getPersonByPhone(String number){
+    public List<Person> getPersonByPhone(String number){
         PhoneDTO pm = new PhoneDTO();
-        Person p = pm.getPerson(number);
+        List<Person> p = pm.getPerson(number);
         return p;
     }
     

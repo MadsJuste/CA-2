@@ -23,13 +23,13 @@ import javax.persistence.Persistence;
 public class FacadeControl {
      public static void main(String[] args)
     {
-        CA2Facade caf = new CA2Facade( Persistence.createEntityManagerFactory( "ca2PU" ) );
+       CA2Facade caf = new CA2Facade( Persistence.createEntityManagerFactory( "ca2PU" ) );
            
        List<Hobby> hobby = new ArrayList();
        List<Phone> phone = new ArrayList();
        Hobby h = new Hobby("Mtg", "kortspil");
        hobby.add(h);
-        Hobby h1 = new Hobby("DND", "Rollespil");
+       Hobby h1 = new Hobby("DND", "Rollespil");
        hobby.add(h1);
        Phone ph = new Phone("12345678","bob1");
        phone.add(ph);
@@ -50,13 +50,12 @@ public class FacadeControl {
         }
        
        
-       /*
-       persons = caf.getFullPersonID(5L);
-       for(Person p:persons)
-        {
-            System.out.println("name of the person is : " + p.getFname() + " " +p.getLname() + "Address "+ p.getAddress()+" hobby er: " +p.getHobby());
-        }
-
+       
+      
+       //Person person = caf.getFullPersonID(1L);
+       
+       //System.out.println("name of the person is : " + person.getFname() + " " +person.getLname() + "Address "+ person.getAddress().getStreet()+" hobby er: " +person.getHobby().toString());
+        /*
        persons = caf.getAllPersonByCity(3333);
        for(Person p:persons)
         {

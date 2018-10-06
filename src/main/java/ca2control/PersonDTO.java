@@ -26,6 +26,7 @@ public class PersonDTO {
     EntityManager em = emf.createEntityManager();
 
     public List<Person> getAllPerson() {
+    
         List<Person> persons = null;
 
         persons = em.createQuery("SELECT p FROM Person p").getResultList();
@@ -37,6 +38,21 @@ public class PersonDTO {
     public Person getFullPersonID(Long id) {
         Person person = em.find(Person.class, id);
 
+        
+       
+          Query query = em.createQuery("SELECT h FROM Hobby h JOIN h.persons p WHERE p.id = :id");
+          query.setParameter("id", id);
+          List<Hobby> hobby = query.getResultList();
+          
+          query = em.createQuery("SELECT e FROM Phone e JOIN e.persons p WHERE p.id = :id");
+          query.setParameter("id", id);
+          List<Phone> phone = query.getResultList();
+                                  
+          query = em.createQuery("SELECT a FROM Address a JOIN a.persons p WHERE p.id = :id");
+          query.setParameter("id", id);
+          List<Address> address = query.getResultList();
+    
+          person = new Person(person.getMail(),person.getFname(),person.getLname(),hobby,address.get(0),phone);
         return person;
     }
 
