@@ -11,9 +11,12 @@ import ca2control.PersonDTO;
 import ca2control.PhoneDTO;
 import entity.Address;
 import entity.Cityinfo;
+import entity.ContactDTO;
+import entity.PersonF;
 import entity.Hobby;
 import entity.Person;
 import entity.Phone;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManagerFactory;
 
@@ -29,6 +32,11 @@ public class CA2Facade {
     {
         this.emf = emf;
     }
+
+    public CA2Facade() {
+    }
+    
+    
     
     
     
@@ -37,17 +45,39 @@ public class CA2Facade {
         PersonDTO p = new PersonDTO();
         
         List<Person> persons = p.getAllPerson();
-        
+               
         return persons;
     }
     
-    public List<Person> getFullPersonID(Long id)
+    public List<ContactDTO> getAllContact(){
+        PersonDTO p = new PersonDTO();
+        
+        List<Person> persons = p.getAllPerson();
+        
+        List<ContactDTO> contacts = new ArrayList();
+        for(Person pers : persons){
+            contacts.add(new ContactDTO(pers));
+        }
+        return contacts;
+    }
+    
+    public Person getFullPersonID(Long id)
     {
         PersonDTO p = new PersonDTO();
         
-        List<Person> persons = p.getFullPersonID(id);
+        Person person = p.getFullPersonID(id);
         
-        return persons;
+        return person;
+    }
+    
+    public ContactDTO getContactID(Long id)
+    {
+        PersonDTO p = new PersonDTO();
+        
+        Person person = p.getFullPersonID(id);
+        
+        
+        return new ContactDTO(person);
     }
     
     public void createPerson(String mail, String fname, String lname, List<Hobby> hobby, Address address, List<Phone> phone){
@@ -67,7 +97,7 @@ public class CA2Facade {
     {
         CityinfoDTO cim = new CityinfoDTO();
       
-        List<Person> persons = cim.getAllPeople(zip);;
+        List<Person> persons = cim.getAllPeople(zip);
                
         return persons;
       

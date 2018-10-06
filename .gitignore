@@ -42,3 +42,4 @@ target/*
 *.persistence.xml
 
 # End of https://www.gitignore.io/api/macos,netbeans
+/nbproject/
