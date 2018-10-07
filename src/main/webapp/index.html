@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Start Page</title>
+        <script src="js/crud.js"></script>
+        <title>SPA</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <div class='inputs'>
+            <input id='userID' type="number" placeholder='userID' />
+            <button id='specificUserComplete'>Get User Full</button>
+            <button id='specificUserContact'>Get User Contact</button>
+            <button id='allUsersComplete'>Get All Full</button>
+            <button id='allUsersContact'>Get All Contact</button>
+        </div>
+        <div id="container">
+        </div>    
     </body>
 </html>

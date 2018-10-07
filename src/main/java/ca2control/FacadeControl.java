@@ -52,9 +52,9 @@ public class FacadeControl {
        
        
       
-       //Person person = caf.getFullPersonID(1L);
+       Person person = caf.getFullPersonID(1L);
        
-       //System.out.println("name of the person is : " + person.getFname() + " " +person.getLname() + "Address "+ person.getAddress().getStreet()+" hobby er: " +person.getHobby().toString());
+       System.out.println("name of the person is : " + person.getFname() + " " +person.getLname() + "Address "+ person.getAddress().getStreet()+" hobby er: " +person.getHobby().toString());
         /*
        persons = caf.getAllPersonByCity(3333);
        for(Person p:persons)

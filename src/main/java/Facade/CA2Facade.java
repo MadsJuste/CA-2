@@ -48,7 +48,14 @@ public class CA2Facade {
                
         return persons;
     }
-    
+    public Person getFullPersonID(Long id)
+    {
+        PersonDTO p = new PersonDTO();
+        
+        Person person = p.getFullPersonID(id);
+        
+        return person;
+    }
    /* public List<ContactDTO> getAllContact(){
         PersonDTO p = new PersonDTO();
         
@@ -61,14 +68,7 @@ public class CA2Facade {
         return contacts;
     }
     
-    public Person getFullPersonID(Long id)
-    {
-        PersonDTO p = new PersonDTO();
-        
-        Person person = p.getFullPersonID(id);
-        
-        return person;
-    }
+    
     
     public ContactDTO getContactID(Long id)
     {
