@@ -33,7 +33,7 @@ public class Phone implements Serializable {
     private String description;
     
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL, FECTH_TYPE = type.eager)
     private Person persons;
 
     public Person getPersons() {
